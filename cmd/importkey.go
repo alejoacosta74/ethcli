@@ -37,7 +37,8 @@ func runImportKey(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	fmt.Printf("Result: \n%s\n", result)
+	fmt.Fprintf(cmd.OutOrStdout(), "Result: %s", result)
+	println()
 
 	return nil
 }

@@ -61,7 +61,7 @@ func Execute() error {
 
 func init() {
 	// set viper default values
-	viper.SetDefault("node", "http://http://127.0.0.1:8080/proxy")
+	// viper.SetDefault("node", "http://http://127.0.0.1:8080/proxy")
 	viper.SetDefault("debug", false)
 	viper.SetDefault("loglevel", "info")
 
@@ -80,8 +80,7 @@ func init() {
 }
 
 func runPersistenPreRunE(cmd *cobra.Command, args []string) error {
-	var err error
-	err = loadConfig()
+	err := loadConfig()
 	if err != nil {
 		return err
 	}
@@ -106,32 +105,30 @@ func runPersistenPreRunE(cmd *cobra.Command, args []string) error {
 // loadConfig loads the ethcli configuration from a
 // file or from env variables
 func loadConfig() error {
-	// if --config is passed as a flag, attempt to parse the config file
 	if cfgFile != "" {
 		viper.SetConfigFile(cfgFile)
-		viper.SetConfigType("env")
+		viper.SetConfigType("yaml")
 
-		if err := viper.ReadInConfig(); err == nil {
-			fmt.Printf("\n(...loading config from file: %s)\n\n", viper.ConfigFileUsed())
-		} else {
+		if err := viper.ReadInConfig(); err != nil {
 			return fmt.Errorf("failed to read config file - %s", err)
 		}
 	} else {
-		// if --config is not passed as a flag, attempt to parse the default config file
-		path, err := os.Getwd()
+		// Default location for config file is $HOME/.ethcli
+		homeDir, err := os.UserHomeDir()
 		if err != nil {
-			// log.With("module", "cmd").Debugf("Error getting current directory: %s", err.Error())
-			return err
-		}
-		viper.AddConfigPath(path)
-		viper.SetConfigName(".ethcli")
-		viper.SetConfigType("env")
-		if err := viper.ReadInConfig(); err == nil {
-			fmt.Printf("\n(...loading config from file: %s)\n\n", viper.ConfigFileUsed())
+			return errors.Wrap(err, "error getting user home directory")
+		} else {
+			configFile := homeDir + "/.ethcli/config.yaml"
+			viper.SetConfigFile(configFile)
+
+			if err := viper.ReadInConfig(); err != nil {
+				return errors.Wrap(err, "failed to read config file")
+			}
 		}
 	}
+	fmt.Printf("Root CMD: default config file: %s\n", viper.ConfigFileUsed())
 
-	viper.AutomaticEnv() // read in environment variables that match
+	viper.AutomaticEnv()
 	return nil
 }
 

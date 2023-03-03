@@ -50,7 +50,6 @@ func runSend(cmd *cobra.Command, args []string) error {
 		os.Exit(1)
 	}
 
-	logger.With("module", "cmd").Debugf("Viper config: %+v\n", viper.AllSettings())
 	amount := args[0]
 	receiver := args[1]
 
