@@ -2,6 +2,7 @@ package ethcli
 
 import (
 	"context"
+	"strings"
 
 	"github.com/ethereum/go-ethereum/ethclient"
 
@@ -19,6 +20,7 @@ type EthClient struct {
 }
 
 func NewEthClient(url string) (*EthClient, error) {
+	url = strings.TrimSpace(url)
 	client, err := ethclient.Dial(url)
 	if err != nil {
 		return nil, errors.New("Error connecting to ethereum node: " + err.Error())

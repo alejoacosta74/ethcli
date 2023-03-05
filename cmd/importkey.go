@@ -19,8 +19,10 @@ the keystore of the node.
 For example:
 ethcli importkey 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
 `,
-	RunE: runImportKey,
-	Args: cobra.ExactArgs(1),
+	RunE:                       runImportKey,
+	Args:                       cobra.ExactArgs(1),
+	SilenceUsage:               true,
+	SuggestionsMinimumDistance: 2,
 }
 
 func init() {

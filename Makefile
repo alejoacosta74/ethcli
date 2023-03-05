@@ -20,7 +20,7 @@ help:
 
 ## Build the ethcli binary in the bin/ directory
 build:
-	@ printf "\nBuilding binary...\n\n"
+	@ printf "\nBuilding ethcli binary in bin/...\n\n"
 	@ go build -o bin/ethcli main.go 2>/dev/null || printf "\nBuild failed!\n\n"
 
 ## Run unit tests
@@ -29,11 +29,12 @@ unit-test:
 	@ go test -v ./...
 
 ## Run integration tests
-integration-test: build
+integration-test:
 	@ printf "\nRunning integration tests...\n\n"
 	@ ./test/integration.sh || printf "\nIntegration tests failed!\n\n"
 
 ## Clean up the build and testing artifacts
 clean:
 	@ printf "\nCleaning up...\n\n"
+	@ docker rm -f ganache-cli >/dev/null 2>&1 || printf "No ganache-cli container found.\n"
 	@ rm -rf bin/ || printf "\nCleanup failed!\n\n"

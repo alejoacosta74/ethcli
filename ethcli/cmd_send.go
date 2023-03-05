@@ -15,17 +15,17 @@ func (c *EthClient) Send(key string, receiver string, weiAmount string) (signedT
 	// check if key is valid
 	if !lib.IsValidHexPrivKey(key) {
 		log.With("module", "ethcli").Debugf("invalid private key: %s", key)
-		return nil, errors.New("invalid private key")
+		return nil, errors.New("invalid private key: " + key + " (must be 64 hex characters)")
 	}
 	// check if receiver is valid
 	if !lib.IsValidHexAddress(receiver) {
 		log.With("module", "ethcli").Debugf("invalid receiver address: %s", receiver)
-		return nil, errors.New("invalid receiver address")
+		return nil, errors.New("invalid receiver address: " + receiver + " (must be 40 hex characters)")
 	}
 	// check if amount is valid
 	if !lib.IsValidWeiAmount(weiAmount) {
 		log.With("module", "ethcli").Debugf("invalid wei amount: %s", weiAmount)
-		return nil, errors.New("invalid wei amount")
+		return nil, errors.New("invalid wei amount: " + weiAmount + " (must be a number)")
 	}
 
 	// convert key to ecdsa

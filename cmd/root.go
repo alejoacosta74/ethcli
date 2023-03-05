@@ -97,6 +97,7 @@ func runPersistenPreRunE(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return errors.Wrap(err, "error creating eth client")
 	}
+	log.With("module", "rootcmd").Debugf("using config file: %s\n", viper.ConfigFileUsed())
 
 	return nil
 
@@ -126,7 +127,6 @@ func loadConfig() error {
 			}
 		}
 	}
-	fmt.Printf("Root CMD: default config file: %s\n", viper.ConfigFileUsed())
 
 	viper.AutomaticEnv()
 	return nil

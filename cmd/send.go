@@ -22,9 +22,11 @@ Usage: ethcli send <amount> <receiver address> {<sender private key> | <keystore
 - Amount shall be specified in units of wei. 
 - A private key must be provided with the --key flag or alternatively via a keystore file
 with the flag --keystore <filename> .`,
-	RunE:    runSend,
-	Args:    cobra.ExactArgs(2),
-	Example: `ethcli send 100 0x71517f86711B4BFf4D789Ad6FEE9a58D8AF1c6bB --key 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef`,
+	RunE:                       runSend,
+	Args:                       cobra.ExactArgs(2),
+	Example:                    `ethcli send 100 0x71517f86711B4BFf4D789Ad6FEE9a58D8AF1c6bB --key 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef`,
+	SilenceUsage:               true,
+	SuggestionsMinimumDistance: 2,
 }
 
 var (

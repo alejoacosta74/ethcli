@@ -84,6 +84,24 @@
 	    "r": "0x12d19b01932b608ca3614ed8b01254bf4acecfc849a1c1cc28e275b0142e37a8",
 	    "s": "0x4b672b3cdc04bf992c295ebd8511ea1511e31517a2663293cce65a243ed93c1"
   ```
+
+- `getbalance`: Retrieves the balance of an ethereum address by issuing *eth_getBalance* RPC call. If the block number is not specified, the "*latest*" block is used.
+  
+  - usage
+  ```
+  ethcli getbalance <address> [<block number>]
+  ```
+
+  - example
+  ```
+  ❯ ethcli getbalance 0x6Fd56E72373a34bA39Bf4167aF82e7A411BFED47
+  ```
+
+  (output)
+  ```bash
+  Balance: 1000000 wei
+  ```
+
 - `importkey`: Imports an ethereum private key (in hexadecimal format), into the keystore of the node
   
   - usage
@@ -210,7 +228,6 @@ Integration tests are executed against a ganache-cli node running on a docker co
 ## To Do
 - :soon: Implement subcommand `create` (creates a ethereum contract)
 - :soon: Implement subcommand `call` (calls a contract function)
-- :soon: Implement subcommand `getbalance` (retrieves the balance of an ethereum address)
 - :soon: Implement subcommand `verifysig` (verifies a signature of an ethereum signed tx)
 - :soon: Increase coverage for unit tests
 - :soon: Increase coverage for integration tests
