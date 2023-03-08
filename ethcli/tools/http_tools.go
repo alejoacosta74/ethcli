@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"net/http"
 
-	"github.com/alejoacosta74/ethereum-client/log"
+	"github.com/alejoacosta74/ethcli/log"
 )
 
 // CreateHTTPRPCRequest is a helper function to create a new JSON RPC http request

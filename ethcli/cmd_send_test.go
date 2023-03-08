@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/alejoacosta74/ethereum-client/internal/mocks"
-	"github.com/alejoacosta74/ethereum-client/lib"
+	"github.com/alejoacosta74/ethcli/internal/mocks"
+	"github.com/alejoacosta74/ethcli/lib"
 	"github.com/btcsuite/btcd/btcjson"
 	"github.com/stretchr/testify/assert"
 )

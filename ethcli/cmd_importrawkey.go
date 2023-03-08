@@ -3,9 +3,9 @@ package ethcli
 import (
 	"net/http"
 
-	"github.com/alejoacosta74/ethereum-client/ethcli/tools"
-	"github.com/alejoacosta74/ethereum-client/lib"
-	"github.com/alejoacosta74/ethereum-client/log"
+	"github.com/alejoacosta74/ethcli/ethcli/tools"
+	"github.com/alejoacosta74/ethcli/lib"
+	"github.com/alejoacosta74/ethcli/log"
 	"github.com/pkg/errors"
 )
 

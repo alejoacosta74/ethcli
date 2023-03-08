@@ -3,7 +3,7 @@ package ethcli
 import (
 	"testing"
 
-	"github.com/alejoacosta74/ethereum-client/internal/mocks"
+	"github.com/alejoacosta74/ethcli/internal/mocks"
 )
 
 func TestGetBalance(t *testing.T) {

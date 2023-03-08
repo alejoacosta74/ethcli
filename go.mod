@@ -1,27 +1,24 @@
-module github.com/alejoacosta74/ethereum-client
+module github.com/alejoacosta74/ethcli
 
 go 1.19
 
-replace github.com/alejoacosta74/gologger => /Users/alejoacosta/code/golang/mylogger
+// replace github.com/alejoacosta74/gologger => /Users/alejoacosta/code/golang/mylogger
 
-replace github.com/qtumproject/qtool => /Users/alejoacosta/code/qtum/qtool
+// replace github.com/qtumproject/qtool => /Users/alejoacosta/code/qtum/qtool
 
 require (
-	github.com/alejoacosta74/gologger v0.0.0-00010101000000-000000000000
+	github.com/alejoacosta74/gologger v0.0.4
 	github.com/btcsuite/btcd v0.20.1-beta
 	github.com/ethereum/go-ethereum v1.10.26
 	github.com/pkg/errors v0.9.1
-	github.com/qtumproject/btcd v0.0.2-beta.qtum
-	github.com/qtumproject/qtool v0.3.3
+	github.com/qtumproject/qtool v0.4.0
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.1
 )
 
 require (
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.1 // indirect
-	github.com/btcsuite/btclog v0.0.0-20170628155309-84c8d2346e9f // indirect
 	github.com/btcsuite/btcutil v1.0.2 // indirect
-	github.com/decred/dcrd/crypto/blake256 v1.0.0 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
@@ -30,9 +27,6 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.5 // indirect
-	github.com/qtumproject/btcd/btcec/v2 v2.0.0-beta.qtum // indirect
-	github.com/qtumproject/btcd/btcutil v1.0.0-beta.qtum // indirect
-	github.com/qtumproject/btcd/chaincfg/chainhash v1.0.0-beta.qtum // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/spf13/afero v1.9.2 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
@@ -45,7 +39,7 @@ require (
 
 require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
-	github.com/btcsuite/btcd/btcec/v2 v2.2.0 // indirect
+	github.com/btcsuite/btcd/btcec/v2 v2.2.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/deckarep/golang-set v1.8.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.1.0 // indirect

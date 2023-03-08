@@ -8,8 +8,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	utils "github.com/alejoacosta74/ethereum-client/internal/testutils"
-	"github.com/alejoacosta74/ethereum-client/log"
+	utils "github.com/alejoacosta74/ethcli/internal/testutils"
+	"github.com/alejoacosta74/ethcli/log"
 	"github.com/btcsuite/btcd/btcjson"
 )
 

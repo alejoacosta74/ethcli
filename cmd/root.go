@@ -25,8 +25,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/alejoacosta74/ethereum-client/ethcli"
-	"github.com/alejoacosta74/ethereum-client/log"
+	"github.com/alejoacosta74/ethcli/ethcli"
+	"github.com/alejoacosta74/ethcli/log"
 	"github.com/alejoacosta74/gologger"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"

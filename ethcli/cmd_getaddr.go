@@ -1,7 +1,7 @@
 package ethcli
 
 import (
-	"github.com/alejoacosta74/ethereum-client/lib"
+	"github.com/alejoacosta74/ethcli/lib"
 )
 
 // GetAdressFromPrivateKey returns the ethereum address from

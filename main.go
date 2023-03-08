@@ -24,7 +24,7 @@ package main
 import (
 	"os"
 
-	"github.com/alejoacosta74/ethereum-client/cmd"
+	"github.com/alejoacosta74/ethcli/cmd"
 	"github.com/fatih/color"
 )
 

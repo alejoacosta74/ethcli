@@ -6,7 +6,7 @@ import (
 	"path"
 	"testing"
 
-	"github.com/alejoacosta74/ethereum-client/log"
+	"github.com/alejoacosta74/ethcli/log"
 	"github.com/alejoacosta74/gologger"
 )
 

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/alejoacosta74/ethereum-client/internal/mocks"
+	"github.com/alejoacosta74/ethcli/internal/mocks"
 	"github.com/stretchr/testify/assert"
 )
 

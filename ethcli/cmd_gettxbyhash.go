@@ -1,7 +1,7 @@
 package ethcli
 
 import (
-	"github.com/alejoacosta74/ethereum-client/log"
+	"github.com/alejoacosta74/ethcli/log"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/pkg/errors"

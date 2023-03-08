@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/alejoacosta74/ethereum-client/internal/mocks"
-	utils "github.com/alejoacosta74/ethereum-client/internal/testutils"
+	"github.com/alejoacosta74/ethcli/internal/mocks"
+	utils "github.com/alejoacosta74/ethcli/internal/testutils"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 )

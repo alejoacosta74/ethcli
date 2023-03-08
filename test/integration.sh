@@ -22,7 +22,7 @@ export NODE=http://localhost:8545
 export PATH=$PATH:$(pwd)/bin
 
 
-set -eu pipefail
+set -eEu pipefail
 trap onError ERR
 
 onError(){

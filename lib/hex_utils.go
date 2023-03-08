@@ -67,7 +67,7 @@ func HexStringToBytes32(dataStr string) ([]byte, error) {
 
 // IsValidHexAddress checks if the given address is a valid ethereum hex address.
 func IsValidHexAddress(iaddress interface{}) bool {
-	re := regexp.MustCompile("^0x[0-9a-fA-F]{40}$")
+	re := regexp.MustCompile("[0-9a-fA-F]{40}$")
 	switch v := iaddress.(type) {
 	case string:
 		return re.MatchString(v)
