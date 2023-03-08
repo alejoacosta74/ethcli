@@ -20,7 +20,8 @@ type EthClient struct {
 }
 
 func NewEthClient(url string) (*EthClient, error) {
-	url = strings.TrimSpace(url)
+
+	url = sanitizeURL(url)
 	client, err := ethclient.Dial(url)
 	if err != nil {
 		return nil, errors.New("Error connecting to ethereum node: " + err.Error())
@@ -49,4 +50,13 @@ func (c *EthClient) PrintPretty(msg string, source interface{}) {
 
 		}
 	}
+}
+
+// sanitizeURL adds http:// to the url if it is not present
+func sanitizeURL(url string) string {
+	url = strings.TrimSpace(url)
+	if !strings.HasPrefix(url, "http") {
+		url = "http://" + url
+	}
+	return url
 }
