@@ -120,6 +120,9 @@ func loadConfig() error {
 			return errors.Wrap(err, "error getting user home directory")
 		} else {
 			configFile := homeDir + "/.ethcli/config.yaml"
+			if _, err := os.Stat(configFile); os.IsNotExist(err) {
+				return nil
+			}
 			viper.SetConfigFile(configFile)
 
 			if err := viper.ReadInConfig(); err != nil {
