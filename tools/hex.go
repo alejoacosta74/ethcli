@@ -1,4 +1,4 @@
-package lib
+package tools
 
 import (
 	"encoding/hex"
@@ -9,6 +9,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/pkg/errors"
 )
 
 func RemoveHexPrefix(hex string) string {
@@ -70,6 +71,10 @@ func IsValidHexAddress(iaddress interface{}) bool {
 	re := regexp.MustCompile("[0-9a-fA-F]{40}$")
 	switch v := iaddress.(type) {
 	case string:
+		v = RemoveHexPrefix(v)
+		if len(v) != 40 {
+			return false
+		}
 		return re.MatchString(v)
 	case common.Address:
 		return re.MatchString(v.Hex())
@@ -78,9 +83,19 @@ func IsValidHexAddress(iaddress interface{}) bool {
 	}
 }
 
+func sanitizePrivateKey(privKeyHex string) (string, error) {
+	privKeyHex = RemoveHexPrefix(privKeyHex)
+	if IsValidHexPrivKey(privKeyHex) {
+		return privKeyHex, nil
+	}
+	return "", errors.New("invalid private key: " + privKeyHex)
+}
+
 // IsValidHexPrivKey checks if the given private key is a valid hex ecdsa private key.
 func IsValidHexPrivKey(privKey string) bool {
-	privKey = RemoveHexPrefix(privKey)
+	if len(privKey) != 64 {
+		return false
+	}
 	re := regexp.MustCompile("[0-9a-fA-F]{64}")
 	return re.MatchString(privKey)
 }

@@ -3,9 +3,8 @@ package ethcli
 import (
 	"net/http"
 
-	"github.com/alejoacosta74/ethcli/ethcli/tools"
-	"github.com/alejoacosta74/ethcli/lib"
 	"github.com/alejoacosta74/ethcli/log"
+	"github.com/alejoacosta74/ethcli/tools"
 	"github.com/pkg/errors"
 )
 
@@ -13,7 +12,8 @@ import (
 func (c *EthClient) ImportRawKey(key string) (string, error) {
 
 	// check if key is valid
-	if !lib.IsValidHexPrivKey(key) {
+	key = tools.RemoveHexPrefix(key)
+	if !tools.IsValidHexPrivKey(key) {
 		log.With("module", "ethcli").Debugf("invalid private key: %s", key)
 		return "", errors.New("invalid private key")
 	}

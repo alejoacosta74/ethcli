@@ -57,7 +57,7 @@ read_balance(){
 
 start_ganache(){
 	# check GANACHE_RESTART environment variable
-	if [ "${GANACHE_RESTART:-false}" = true ]; then
+	if [ "${GANACHE_RESTART:-true}" = true ]; then
 		# check if the docker image is available
 		if [ -z "$(docker images -q trufflesuite/ganache-cli:latest 2> /dev/null)" ]; then
 			docker pull --platform $PLATFORM trufflesuite/ganache-cli:latest

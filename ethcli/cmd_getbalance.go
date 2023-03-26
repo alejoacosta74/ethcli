@@ -3,8 +3,8 @@ package ethcli
 import (
 	"math/big"
 
-	"github.com/alejoacosta74/ethcli/lib"
 	"github.com/alejoacosta74/ethcli/log"
+	"github.com/alejoacosta74/ethcli/tools"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/pkg/errors"
 )
@@ -13,7 +13,7 @@ import (
 // an address in units of wei
 func (c *EthClient) GetBalance(address string, blockNumber *big.Int) (string, error) {
 	// check if address is valid
-	if !lib.IsValidHexAddress(address) {
+	if !tools.IsValidHexAddress(address) {
 		log.With("module", "ethcli").Debugf("invalid address: %s", address)
 		return "", errors.New("invalid address: " + address)
 	}

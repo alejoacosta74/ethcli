@@ -3,8 +3,8 @@ package ethcli
 import (
 	"math/big"
 
-	"github.com/alejoacosta74/ethcli/lib"
 	"github.com/alejoacosta74/ethcli/log"
+	"github.com/alejoacosta74/ethcli/tools"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/pkg/errors"
@@ -13,30 +13,31 @@ import (
 func (c *EthClient) Send(key string, receiver string, weiAmount string) (signedTx *types.Transaction, err error) {
 
 	// check if key is valid
-	if !lib.IsValidHexPrivKey(key) {
+	key = tools.RemoveHexPrefix(key)
+	if !tools.IsValidHexPrivKey(key) {
 		log.With("module", "ethcli").Debugf("invalid private key: %s", key)
 		return nil, errors.New("invalid private key: " + key + " (must be 64 hex characters)")
 	}
 	// check if receiver is valid
-	if !lib.IsValidHexAddress(receiver) {
+	if !tools.IsValidHexAddress(receiver) {
 		log.With("module", "ethcli").Debugf("invalid receiver address: %s", receiver)
 		return nil, errors.New("invalid receiver address: " + receiver + " (must be 40 hex characters)")
 	}
 	// check if amount is valid
-	if !lib.IsValidWeiAmount(weiAmount) {
+	if !tools.IsValidWeiAmount(weiAmount) {
 		log.With("module", "ethcli").Debugf("invalid wei amount: %s", weiAmount)
 		return nil, errors.New("invalid wei amount: " + weiAmount + " (must be a number)")
 	}
 
 	// convert key to ecdsa
-	privateKey, err := lib.ConvertPrivateKey(key)
+	privateKey, err := tools.ConvertPrivateKey(key)
 	if err != nil {
 		log.With("module", "ethcli").Debugf("error converting private key %s to ecdsa: %s", key, err.Error())
 		return nil, err
 	}
 
 	// get "from" address from private key
-	fromAddress, err := lib.GetAddressFromPrivKey(privateKey)
+	fromAddress, err := tools.GetAddressFromPrivKey(privateKey)
 	if err != nil {
 		log.With("module", "ethcli").Debugf("error getting address from privkey %s : %s", key, err.Error())
 		return nil, err

@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/alejoacosta74/ethcli/internal/mocks"
-	"github.com/alejoacosta74/ethcli/lib"
+	"github.com/alejoacosta74/ethcli/tools"
 	"github.com/btcsuite/btcd/btcjson"
 	"github.com/stretchr/testify/assert"
 )
@@ -64,8 +64,8 @@ func TestSend(t *testing.T) {
 	assert.Equal(t, amount, decodedTx.Value().String())
 
 	// 6. Verify the decoded tx is signed and the signature is valid
-	pubKey, _ := lib.PrivToPubKey(privKey)
-	verified := lib.VerifyTxSignature(decodedTx, pubKey)
+	pubKey, _ := tools.PrivToPubKey(privKey)
+	verified := tools.VerifyTxSignature(decodedTx, pubKey)
 	assert.True(t, verified)
 
 }
