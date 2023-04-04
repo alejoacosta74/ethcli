@@ -6,9 +6,11 @@ go 1.19
 
 // replace github.com/qtumproject/qtool => /Users/alejoacosta/code/qtum/qtool
 
+// replace github.com/btcsuite/btcd/chaincfg/chainhash v1.0.1 => github.com/btcsuite/btcd/chaincfg/chainhash
+
 require (
 	github.com/alejoacosta74/gologger v0.0.4
-	github.com/btcsuite/btcd v0.20.1-beta
+	github.com/btcsuite/btcd v0.23.4
 	github.com/ethereum/go-ethereum v1.10.26
 	github.com/pkg/errors v0.9.1
 	github.com/qtumproject/qtool v0.4.0
@@ -17,7 +19,13 @@ require (
 )
 
 require (
+	github.com/btcsuite/btcd/btcutil v1.1.0 // indirect
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.1 // indirect
+	github.com/btcsuite/btclog v0.0.0-20170628155309-84c8d2346e9f // indirect
+	github.com/decred/dcrd/crypto/blake256 v1.0.0 // indirect
+)
+
+require (
 	github.com/btcsuite/btcutil v1.0.2 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
