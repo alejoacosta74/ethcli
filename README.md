@@ -2,6 +2,12 @@
 
 # ethcli
 
+[![ci-test](https://github.com/alejoacosta74/ethcli/actions/workflows/ci.yaml/badge.svg)](https://github.com/alejoacosta74/ethcli/actions/workflows/ci.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/alejoacosta74/ethcli)](https://goreportcard.com/report/github.com/alejoacosta74/ethcli)
+[![codecov](https://codecov.io/gh/alejoacosta74/ethcli/branch/main/graph/badge.svg?token=QZQZQZQZQZ)](https://codecov.io/gh/alejoacosta74/ethcli)
+[![Go Reference](https://pkg.go.dev/badge/github.com/alejoacosta74/ethcli.svg)](https://pkg.go.dev/github.com/alejoacosta74/ethcli)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 `ethcli` is a golang based ethereum cli used to interact with an Ethereum node via the JSON RPC API
 
 ## Subcommands
