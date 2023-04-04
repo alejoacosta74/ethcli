@@ -43,6 +43,7 @@ func TestGetAddr(t *testing.T) {
 			rootCmd.SetOut(actual)
 			rootCmd.SetErr(actual)
 			args := append([]string{"getaddr"}, tt.args...)
+			args = append(args, "--node", "http://127.0.0.1:5777")
 			rootCmd.SetArgs(args)
 			err := rootCmd.Execute()
 			if tt.isError {

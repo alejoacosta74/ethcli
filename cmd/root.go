@@ -60,8 +60,6 @@ func Execute() error {
 }
 
 func init() {
-	// set viper default values
-	// viper.SetDefault("node", "http://http://127.0.0.1:8080/proxy")
 	viper.SetDefault("debug", false)
 	viper.SetDefault("loglevel", "info")
 

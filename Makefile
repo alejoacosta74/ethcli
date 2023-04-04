@@ -26,7 +26,7 @@ build:
 ## Run unit tests
 unit-test:
 	@ printf "\nRunning tests...\n\n"
-	@ go test -v -cover ./...
+	@ go test -v -cover -count=1 ./...
 
 ## Run integration tests
 integration-test:
